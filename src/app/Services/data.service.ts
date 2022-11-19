@@ -25,7 +25,7 @@ export class DataService {
   }
 
   AuthUser(data: any) {
-    return this.http.post(`http://127.0.0.1:8000/api/login`, data).pipe(map(res => {
+    return this.http.post(`https://beesline-shop.000webhostapp.com/api/login`, data).pipe(map(res => {
       this.result = res;
       this.token = this.result['0'];
       this.uId = this.result['1'];
