@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class APIService {
   constructor(private myClient: HttpClient) {}
 
-  BASE_URL = 'http://127.0.0.1:8000/api';
-  IMG_URL = 'http://127.0.0.1:8000/public/';
+  BASE_URL = 'https://beesline-shop.000webhostapp.com/api';
+  IMG_URL = 'https://beesline-shop.000webhostapp.com/public/';
 
   getAllProducts() {
     return this.myClient.get(this.BASE_URL + '/products');

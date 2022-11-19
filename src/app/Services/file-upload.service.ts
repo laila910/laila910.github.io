@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FileUploadService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://beesline-shop.000webhostapp.com';
   constructor(private http: HttpClient) {}
 
   upload(file: File): Observable<HttpEvent<any>> {

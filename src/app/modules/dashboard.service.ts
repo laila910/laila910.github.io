@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-  public imageUrl="http://127.0.0.1:8000/public/";
+  public imageUrl="https://beesline-shop.000webhostapp.com/public/";
   constructor(private http: HttpClient) { }
-  private base_url="http://127.0.0.1:8000/api";
+  private base_url="https://beesline-shop.000webhostapp.com/api";
 
   //CRUD System for Products
   GetAllProducts():Observable<any>{

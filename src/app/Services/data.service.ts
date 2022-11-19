@@ -10,8 +10,8 @@ export class DataService {
   token: any;
   uId: any;
   userData: any;
-  public imageUrl = "http://127.0.0.1:8000/public/";
-  private base_url = "http://127.0.0.1:8000/api";
+  public imageUrl = "https://beesline-shop.000webhostapp.com/public/";
+  private base_url = "https://beesline-shop.000webhostapp.com/api";
   constructor(private http: HttpClient) { }
 
   AddUser(data: any): Observable<any> {
