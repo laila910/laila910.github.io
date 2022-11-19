@@ -42,13 +42,16 @@ export class SignInComponent implements OnInit {
         if (result) {
           if (localStorage.getItem('userId') == '1') {
             setTimeout(() => {
-              window.location.href = '/dashboard/home';
+              // window.location.href = '/dashboard/home';
+              this.router.navigateByUrl('/dashboard/home');
             }, 1000);
           } else {
         
             setTimeout(() => {
            
-              window.location.href = '/';
+              // window.location.href = '/';
+              this.router.navigateByUrl('/');
+            
             }, 1000);
             
 
