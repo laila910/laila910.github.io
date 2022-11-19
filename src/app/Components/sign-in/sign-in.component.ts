@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/Services/data.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Component({
   selector: 'app-sign-in',
@@ -35,12 +36,16 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
+userData:any;
+UserType:any;
   signIn(data: any) {
     this.dataService.AuthUser(data.value).subscribe(
       (result) => {
         if (result) {
-          if (localStorage.getItem('userId') == '1') {
+          this.userData=localStorage.getItem('userData');
+          this.userData=JSON.parse(this.userData);
+          this.UserType=this.userData.data.type;
+          if (this.UserType=='admin') {
             setTimeout(() => {
               // window.location.href = '/dashboard/home';
               this.router.navigateByUrl('/dashboard/home');
