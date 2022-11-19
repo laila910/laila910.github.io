@@ -1,0 +1,56 @@
+h3 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3.5px solid #c59630;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  letter-spacing: 2px;
+}
+h3 span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  letter-spacing: 2px;
+}
+
+.place {
+  color: white;
+}
+
+.place:hover {
+  background-color: white;
+  color:#c59630;
+}
+.buttons {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: large;
+
+}
+.buttons:hover {
+  background-color: white;
+  color:#c59630;
+}
+.golder {
+  color: #C59630;
+  cursor: pointer;
+}
+
+.titles{
+  font-size: 1.3rem;
+}
+.txt{
+  font-size: 1.1rem;
+}
+.txt2{
+  font-size: 1rem;
+}
+

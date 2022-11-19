@@ -1,0 +1,34 @@
+<div class="container mt-5 mb-5">
+  <mat-card>Users Details</mat-card>
+<br>
+<div style="overflow-x:auto;" class="example-container mat-elevation-z8">
+ <table class="table table-striped table-responsive-sm" >
+   <thead>
+     <tr>
+       <th>#</th>
+       <th>Name</th>
+       <th>Image</th>
+       <th>Email</th>
+       <th>Type</th>
+       <th>City</th>
+       <th>Action</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let u of AllUserData">
+       <td>{{u.id}}</td>
+       <td>{{u.firstname}} &nbsp;{{u.lastname}}</td>
+       <td><img src="{{dashboardService.imageUrl}}{{u.image}}"   alt=""></td>
+       <td>{{u.email}}</td>
+       <td>{{u.type}}</td>
+       <td>{{u.city}}</td>
+       <td>
+         <button mat-raised-button  color="primary" routerLink="/dashboard/users/userDetails/{{u.id}}"><mat-icon>remove_red_eye</mat-icon></button>
+       </td>
+     </tr>
+   </tbody>
+ </table>
+</div>
+</div>
+<br>
+<mat-divider></mat-divider>

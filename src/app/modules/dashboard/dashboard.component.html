@@ -1,0 +1,30 @@
+<div class="container p-2 hos">
+<div>
+    <app-widget-area></app-widget-area>
+</div>
+<br>
+<mat-divider></mat-divider>
+<br>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px" class="stats-cards">
+    <mat-card fxFlex="25">
+        <app-widget-card label="No Of Users per years" total="{{NoOfUserstotal}}"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="25">
+        <app-orders-accepted-card label="Orders Accepted per years" total="{{NoOfOrdersAccepted}}"></app-orders-accepted-card>
+    </mat-card>
+    <mat-card fxFlex="25">
+        <app-orders-pending-card label="Orders Pending per years" total="{{NoOfOrdersPending}}"></app-orders-pending-card>
+    </mat-card>
+    <mat-card fxFlex="25">
+        <app-orders-rejected-card label="Orders Rejected per years" total="{{NoOfOrdersRejected}}"></app-orders-rejected-card>
+    </mat-card>
+</div>
+<br>
+<br>
+<mat-divider></mat-divider>
+<br>
+<div fxLayout="column">
+        <app-widget-all-users-table></app-widget-all-users-table>    
+        <app-widget-pie></app-widget-pie>
+</div>
+</div>

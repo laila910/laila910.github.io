@@ -1,0 +1,114 @@
+<div class="container">
+  <h3><span>&nbsp;Create Acccont&nbsp;</span></h3>
+  <div class="p-5">
+    <div *ngIf="flag" class="alert alert-danger">
+     Please fill in all required fileds<span style="color:red;">&nbsp;*</span>
+    </div>
+    <form [formGroup]="signUpForm" (ngSubmit)='onSubmit(signUpForm)' enctype="multipart/form-data">
+      <h1 style="font-weight: 300;">Personal Information</h1>
+      <hr>
+      <div class="form-group mt-3">
+        <label for="exampleInputImg">Image</label><span style="color:red;">&nbsp;*</span>
+        <input name="image" required type="file" class="form-control" id="exampleInputImg"
+          placeholder="Enter Your Image.." (change)="onChange($event)">
+      </div>
+      <div class="form-group my-4">
+        <label>First Name</label> <span style="color:red;">&nbsp;*</span>
+        <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName"
+          minlength="3" required  >
+        <div *ngIf="FirstName?.touched &&  FirstName?.invalid" class="alert alert-danger" style="width:39%">
+          <div *ngIf="FirstName?.errors?.['required']">First name is required</div>
+          <div *ngIf="FirstName?.errors?.['minlength']">First name minimum length is 3</div>
+          <div *ngIf="FirstName?.errors?.['pattern']">The first name must contain  alphabetic characters only!</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Last Name</label><span style="color:red;">&nbsp;*</span>
+        <input type="text" required class="form-control" placeholder="Enter Last Name" formControlName="lastName" minlength="3">
+        <div *ngIf="lastName?.touched &&  lastName?.invalid" class="alert alert-danger" style="width:39%">
+          <div *ngIf="lastName?.errors?.['required']">Last name is required</div>
+          <div *ngIf="lastName?.errors?.['minlength']">Last name minimum length is 3</div>
+          <div *ngIf="lastName?.errors?.['pattern']">The last name must contain alphabetic characters only!</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Address</label><span style="color:red;">&nbsp;*</span>
+        <textarea  required class="form-control" rows="3" style="width: 400px;" formControlName="address" minlength="5" required></textarea>
+        <div *ngIf="address?.touched &&  address?.invalid" class="alert alert-danger" style="width:39%">Address is Required </div>
+        <div *ngIf="address?.errors?.['required']">Address Required</div>
+        <div *ngIf="address?.errors?.['minlength']">Address must be more than 5 characteres</div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label>Phone Number</label><span style="color:red;">&nbsp;*</span>
+        <input type="text" class="form-control" placeholder="Enter Phone number" formControlName="phoneNumber">
+        <div *ngIf="phoneNumber?.touched &&  phoneNumber?.invalid" class="alert alert-danger" style="width:39%" required>
+          <div *ngIf="phoneNumber?.errors?.['required']">Phone number is required</div>
+          <div *ngIf="phoneNumber?.errors?.['pattern']">Invalid phone number</div>
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label>City</label><span style="color:red;">&nbsp;*</span>
+        <br>
+        <select name="city" class="form-control"style="width:400px"formControlName="city">
+          <option value="NoTSelected">Choose your city</option>
+          <option value="cairo">Cairo</option>
+          <option value="alex">Alexandria</option>
+          <option value="giza">Giza</option>
+          <option value="portSaid">Port Said</option>
+          <option value="suez">Suez</option>
+          <option value="luxor">Luxor</option>
+          <option value="mansoura">Mansoura</option>
+          <option value="tanta">Tanta</option>
+          <option value="asyut">Asyut</option>
+          <option value="ismailia">Ismailia</option>
+          <option value="faiyum">Faiyum</option>
+          <option value="zagazig">Zagazig</option>
+          <option value="damietta">Damietta</option>
+          <option value="aswan">Aswan</option>
+          <option value="minya">Minya</option>
+          <option value="damanhur">Damanhur</option>
+          <option value="beniSuef">Beni Suef</option>
+          <option value="qena">Qena</option>
+          <option value="sohag">Sohag</option>
+          <option value="banha">Banha</option>
+          <option value="arish">Arish</option>
+        </select>
+      </div>
+
+      <div class="m-4"></div>
+      <h1 style="font-weight:300;">Sign-in Information</h1>
+      <hr>
+      <div class="form-group mb-4">
+        <label>Email</label><span style="color:red;">&nbsp;*</span>
+        <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" required>
+        <div *ngIf="email?.touched &&  email?.invalid" class="alert alert-danger" style="width:39%">
+          <div *ngIf="email?.errors?.['required']">Email is required</div>
+          <div *ngIf="email?.errors?.['pattern']">Invalid Email</div>
+        </div>
+        <div class="alert alert-danger" *ngIf="errorArray!=null">{{ errorArray }}</div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Password</label><span style="color:red;">&nbsp;*</span>
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password" minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}">
+        <div *ngIf="password?.touched && password?.invalid" class="alert alert-danger" style="width:39%">
+          <div *ngIf="password?.errors?.['required']">Password is required</div>
+          <div *ngIf="password?.errors?.['pattern']">Password must be at least 8 characters in length,
+            lowercase letters,
+            uppercase letters,
+            numbers,
+            special characters</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Confirm password</label><span style="color:red;">&nbsp;*</span>
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="confirmPass" required minlength="6">
+        <div class="alert alert-danger" *ngIf="passwordMatchError" style="width:39%">
+          Passwords do not match
+        </div>
+      </div>
+      <button type="submit" class="btn btn-warning mt-3">Create Account</button>
+    </form>
+  </div>
+</div>
